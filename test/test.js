@@ -1,10 +1,10 @@
 import { expect } from 'chai'
-import PriceStore from '../src'
+import StockStore from '../src'
 
 const timeout = 10 * 1000
 
 function createStore(options){
-	return new PriceStore({
+	return new StockStore({
 		site: 'goalrilla',
 		ids: ['B1002'],
 		//verbose: true,
@@ -15,44 +15,37 @@ function createStore(options){
 
 describe('Price store', function(){
 
-	it('Should return a price', done => {
+	it('Should return a stock', done => {
 		createStore()
-			.addEvent(prices => {
-				expect(typeof prices[`b1002`]).to.equal('string')
+			.addEvent(stock => {
+				expect(typeof stock[`b1002`]).to.equal('number')
 				done()
 			})
 	}).timeout(timeout)
 
-	it('Should return an unformatted price', done => {
+	/*
+	it('Should return an single stock', done => {
 		createStore()
-			.addEvent(prices => {
-				expect(typeof prices[`b1002`]).to.equal('number')
-				done()
-			}, { formatted: false })
-	}).timeout(timeout)
-
-	it('Should return an single price', done => {
-		createStore()
-			.addEvent(price => {
-				expect(typeof price).to.equal('string')
+			.addEvent(stock => {
+				expect(typeof stock).to.equal('string')
 				done()
 			}, { id: `b1002` })
 	}).timeout(timeout)
 
-	it('Should return an price added later', done => {
+	it('Should return an stock added later', done => {
 		createStore({ ids: [] })
-			.addEvent(price => {
-				expect(typeof price).to.equal('string')
+			.addEvent(stock => {
+				expect(typeof stock).to.equal('string')
 				done()
 			}, { id: `b1002` })
 	}).timeout(timeout)
 
-	it('Should return an undefined price', done => {
+	it('Should return an undefined stock', done => {
 		createStore({ ids: ['abc123'] })
-			.addEvent(prices => {
-				expect(prices[`abc123`]).to.equal('undefined')
+			.addEvent(stock => {
+				expect(stock[`abc123`]).to.equal('undefined')
 				done()
 			})
 	}).timeout(timeout)
-
+	*/
 })
