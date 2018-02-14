@@ -1,0 +1,38 @@
+{
+  "name": "escalade-stock-store",
+  "version": "0.0.0",
+  "keywords": [
+    "escalade",
+    "stock",
+    "store",
+    "cookies",
+    "client"
+  ],
+  "main": "dist/index.js",
+  "browser": "dist-browser/index.js",
+  "author": "Kennedy Rose <krose@escaladesports.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/escaladesports/escalade-stock-store.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "analyze": "esca-scripts analyze --input './src/index.js' --component",
+    "build": "esca-scripts build --input './src' --output './dist' --multiple --babel --component",
+    "dev": "esca-scripts dev ---input './dev/dev.js, ./dev/index.html' --browser",
+    "prepublishOnly": "npm run build",
+    "test": "esca-scripts test",
+    "travis": "opn https://travis-ci.org/escaladesports/escalade-stock-store/branches"
+  },
+  "devDependencies": {
+    "esca-scripts": "0.13.4",
+    "npm-run-all": "^4.1.2",
+    "opn-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.26.0",
+    "escalade-data-store": "^1.0.2",
+    "fetch-retry": "^1.1.1",
+    "js-cookie": "^2.2.0"
+  }
+}
